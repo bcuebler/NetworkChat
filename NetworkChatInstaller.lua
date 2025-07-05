@@ -4,6 +4,7 @@ term = require("term")
 computer = require("computer")
 computer.beep()
 
+term.clear()
 print("Install OpenChat? [y/n]")
 print(" ")
 ans = io.read()
