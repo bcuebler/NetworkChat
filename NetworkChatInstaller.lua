@@ -9,8 +9,10 @@ print("Install OpenChat? [y/n]")
 print(" ")
 ans = io.read()
 if( string.lower(ans) == "y" ) then
+print("Install path: [for example: /bin/chat.lua]")
+ and = io.read()
 print("Installing chat.lua")
- local file = io.open("/bin/chat.lua", "w")
+ local file = io.open(ans, "w")
  if file then
    file:write([[
  component = require("component")
