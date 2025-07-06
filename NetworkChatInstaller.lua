@@ -10,7 +10,7 @@ print(" ")
 ans = io.read()
 if( string.lower(ans) == "y" ) then
 print("Install path: [for example: /bin/chat.lua]")
- and = io.read()
+ ans = io.read()
 print("Installing chat.lua")
  local file = io.open(ans, "w")
  if file then
