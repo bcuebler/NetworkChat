@@ -1,10 +1,9 @@
-local fs = require("filesystem")
-local file = io.open("/home/chat.lua", "w")
+fs = require("filesystem")
 term = require("term")
 computer = require("computer")
 computer.beep()
 
---term.clear()
+term.clear()
 print("Install OpenChat? [y/n]")
 print(" ")
 ans = io.read()
@@ -12,7 +11,7 @@ if( string.lower(ans) == "y" ) then
 print("Install path: [for example: /bin/chat.lua]")
  path = tostring(io.read())
 print("Installing chat.lua")
- local file = io.open(path, "w")
+ file = io.open(path, "w")
  if file then
    file:write([[
  component = require("component")
