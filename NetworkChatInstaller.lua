@@ -10,9 +10,9 @@ print(" ")
 ans = io.read()
 if( string.lower(ans) == "y" ) then
 print("Install path: [for example: /bin/chat.lua]")
- ans = io.read()
+ path = tostring(io.read())
 print("Installing chat.lua")
- local file = io.open(ans, "w")
+ local file = io.open(path, "w")
  if file then
    file:write([[
  component = require("component")
