@@ -15,7 +15,7 @@ print("OpenChat installer")
 print(" ")
 print("Installation path? E.g.: /home)")
  path = tostring(io.read())
- path = path 
+ path = path .. "/chat.lua"
 print("Installing chat.lua")
  file = io.open(path, "w")
  if file then
