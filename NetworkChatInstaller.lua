@@ -13,8 +13,9 @@ if( string.lower(ans) == "y" ) then
 term.clear()
 print("OpenChat installer")
 print(" ")
-print("Installation path and name? E.g.: /bin/chat.lua)")
+print("Installation path? E.g.: /home)")
  path = tostring(io.read())
+ path = path 
 print("Installing chat.lua")
  file = io.open(path, "w")
  if file then
