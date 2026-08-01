@@ -9,15 +9,33 @@ print(" ")
 print("Install OpenChat? [y/n]")
 print(" ")
 ans = io.read()
+
 if( string.lower(ans) == "y" ) then
-term.clear()
-print("OpenChat installer")
-print(" ")
-print("Installation path? E.g.: /home)")
+ term.clear()
+ print("OpenChat installer")
+ print(" ")
+ print("Installation path? E.g.: /home")
  path = tostring(io.read())
  path = path .. "/chat.lua"
-print("Installing chat.lua")
- file = io.open(path, "w")
+
+ if fs.exists(path) then
+   print(" ")
+   print("The file is already exists! Do you want to overwrite it? [y/n]")
+   local overwrite = io.read()
+   if string.lower(overwrite) ~= "y" then
+     print("Installation aborted by user.")
+     if fs.exists("/tmp/ChatInst.lua") then
+      print(" ")
+      print("Cleaning up...") 
+      fs.remove("/tmp/ChatInst.lua")
+     end
+     return
+   end
+ end
+
+ print("Installing chat.lua")
+ 
+ file, err = io.open(path, "w")
  if file then
    file:write([[
  component = require("component")
@@ -90,17 +108,19 @@ print("Installing chat.lua")
    end
  end
  ]])
-    file:close()
+   file:close()
    print("Installation complete!")
  else
-   print("Error installing file")
+   print("Error installing file: " .. tostring(err))
  end
 else
  print("installation aborted!")
 end
- if fs.exists("/tmp/ChatInst.lua") then
-   print(" ")
-   print("Cleaning up...") 
-   fs.remove("/tmp/ChatInst.lua")
- end
+
+if fs.exists("/tmp/ChatInst.lua") then
+ print(" ")
+ print("Cleaning up...") 
+ fs.remove("/tmp/ChatInst.lua")
+end
+
  
