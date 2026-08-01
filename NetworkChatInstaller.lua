@@ -98,5 +98,9 @@ print("Installing chat.lua")
 else
  print("installation aborted!")
 end
-print("Cleaning up..)
+ if fs.exists("/tmp/MROS_multi_installer.lua") then
+   print(" ")
+   print("Cleaning up...") 
+   fs.remove("/tmp/MROS_multi_installer.lua")
+ end
  
