@@ -38,14 +38,14 @@ if( string.lower(ans) == "y" ) then
  file, err = io.open(path, "w")
  if file then
    file:write([[
- component = require("component")
+component = require("component")
  event = require("event")
  modem = component.modem
  term = require("term")
  computer = require("computer")
  port = 0
  usr = " "
- local inputBuffer = " "
+ local inputBuffer = ""
  
  computer.beep()
  term.clear()
@@ -95,9 +95,11 @@ if( string.lower(ans) == "y" ) then
        end
  
      else
-       local c = string.char(char)
-       inputBuffer = inputBuffer .. c
-       io.write(c)
+       if char > 0 and (char >= 32 or char == 9) then
+         local c = string.char(char)
+         inputBuffer = inputBuffer .. c
+         io.write(c)
+       end
      end
  
    elseif evt[1] == "modem_message" then
