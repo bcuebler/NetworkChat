@@ -38,7 +38,7 @@ if( string.lower(ans) == "y" ) then
  file, err = io.open(path, "w")
  if file then
    file:write([[
-component = require("component")
+ component = require("component")
  event = require("event")
  modem = component.modem
  term = require("term")
@@ -66,12 +66,11 @@ component = require("component")
  
  print("type /EXIT to exit from the program")
  print("")
- --io.write("> ")
+ io.write("> ")
  
  
  while true do
    local evt = {event.pullMultiple("key_down", "modem_message")}
- 
  
    if evt[1] == "key_down" then
      local char = evt[3]
@@ -86,7 +85,8 @@ component = require("component")
        print("")
        modem.broadcast(port, usr .. ": " .. inputBuffer)
        inputBuffer = ""
-       --io.write("> ")
+       -- Új prompt az elküldött üzenet után
+       io.write("> ")
  
      elseif char == 8 then
        if #inputBuffer > 0 then
@@ -104,11 +104,15 @@ component = require("component")
  
    elseif evt[1] == "modem_message" then
      local _, _, from, port, _, message = table.unpack(evt)
+     local x, y = term.getCursor()
+     term.setCursor(1, y)
+     term.clearLine()
      print(tostring(message))
-  os.sleep(0.2)
-     io.write(inputBuffer)
+     os.sleep(0.2)
+     io.write("> " .. inputBuffer)
    end
  end
+
  ]])
    file:close()
    print("Installation complete!")
