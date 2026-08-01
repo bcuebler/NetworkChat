@@ -98,3 +98,5 @@ print("Installing chat.lua")
 else
  print("installation aborted!")
 end
+print("Cleaning up..)
+ 
