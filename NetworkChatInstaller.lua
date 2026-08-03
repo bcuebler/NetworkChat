@@ -41,7 +41,7 @@ if( string.lower(ans) == "y" ) then
  component = require("component")
  event = require("event")
 if not component.isAvailable("modem") then
-    print("This program requires modem to run")
+    print("This program requires a network card to run.")
     os.exit()
 end
  modem = component.modem
