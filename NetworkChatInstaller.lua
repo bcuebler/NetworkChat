@@ -40,6 +40,10 @@ if( string.lower(ans) == "y" ) then
    file:write([[
  component = require("component")
  event = require("event")
+if not component.isAvailable("modem") then
+    print("This program requires modem to run")
+    os.exit()
+end
  modem = component.modem
  term = require("term")
  computer = require("computer")
