@@ -116,6 +116,7 @@ end
      io.write("> " .. inputBuffer)
    end
  end
+
  ]])
    file:close()
    print("Installation complete!")
@@ -131,5 +132,3 @@ if fs.exists("/tmp/ChatInst.lua") then
  print("Cleaning up...") 
  fs.remove("/tmp/ChatInst.lua")
 end
-
- 
