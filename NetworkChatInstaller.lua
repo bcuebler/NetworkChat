@@ -14,7 +14,7 @@ if( string.lower(ans) == "y" ) then
  term.clear()
  print("OpenChat installer")
  print(" ")
- print("Installation path? E.g.: /usr/bin")
+ print("Installation path? Default: /usr/bin")
  path = tostring(io.read()) or "/usr/bin"
  path = path .. "/chat.lua"
 
