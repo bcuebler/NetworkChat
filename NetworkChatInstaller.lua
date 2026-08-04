@@ -116,7 +116,6 @@ end
      io.write("> " .. inputBuffer)
    end
  end
-
  ]])
    file:close()
    print("Installation complete!")
