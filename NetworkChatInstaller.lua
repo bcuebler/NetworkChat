@@ -17,7 +17,7 @@ if( string.lower(ans) == "y" ) then
  print("Installation path? Default: /usr/bin")
  path = tostring(io.read())
  if path == "" then
-   path = "/usr/bin"
+  path = "/usr/bin"
  end
  path = path .. "/chat.lua"
 
